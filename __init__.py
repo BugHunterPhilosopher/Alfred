@@ -317,8 +317,7 @@ class AlfredSkill(MycroftSkill):
         self.register_intent(toggle_intent, self.handle_toggle_intent)
 
         turnallon_scene_intent = IntentBuilder("TurnAllOnIntent") \
-            .require("Scene") \
-            .one_of("Group", "LightsKeyword") \
+            .one_of("TurnAllOnKeyword") \
             .build()
         self.register_intent(turnallon_scene_intent,
                              self.handle_turnallon_scene_intent)
@@ -378,6 +377,7 @@ class AlfredSkill(MycroftSkill):
     def handle_turnallon_scene_intent(self, message, group):
         scene_name = message.data['Scene'].lower()
         scene_id = self.scenes_to_ids_map[scene_name]
+        self.speak_dialog("I'll do this!");
         if scene_id:
             if self.verbose:
                 self.speak_dialog('activate.scene',
