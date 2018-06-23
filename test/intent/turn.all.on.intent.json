@@ -2,7 +2,6 @@
   "utterance": "turn the living room on",
   "intent_type": "TurnAllOnIntent",
   "intent": {
-    "OnKeyword": "on",
-    "LightsKeyword": "lights"
+    "TurnAllOnKeyword": "turn the living room on"
   }
 }
