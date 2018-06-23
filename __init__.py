@@ -310,12 +310,6 @@ class AlfredSkill(MycroftSkill):
                 # Swallow it for now; _connect_to_bridge will deal with it
                 pass
 
-        toggle_intent = IntentBuilder("ToggleIntent") \
-            .one_of("OffKeyword", "OnKeyword") \
-            .one_of("Group", "LightsKeyword") \
-            .build()
-        self.register_intent(toggle_intent, self.handle_toggle_intent)
-
         turnallon_scene_intent = IntentBuilder("TurnAllOnIntent") \
             .one_of("TurnAllOnKeyword") \
             .build()
