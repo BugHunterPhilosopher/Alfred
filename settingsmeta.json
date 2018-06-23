@@ -51,18 +51,21 @@
                         "label": "<p>Mycroft supports Hue groups, allowing you to request that he adjust a particular set of lights (e.g. those in your kitchen or bedroom), without changing any other lights. The Default Group value determines which group Mycroft will act on by default, when you do not specify a group in your command. The default, 0, is all of your lights. You can use either the name of the group (e.g. \"kitchen\") or it's id (e.g. \"4\").</p>"
                     },
                     {
-                        "type": "label",
+                        "type": "text",
                         "name": "apikey",
+                        "label": "Jeedom API key",
                         "label": "<p>Jeedom-provided API key (go to “General” → “Configuration” → “General” tab.</p>"
                     },
                     {
-                        "type": "label",
+                        "type": "text",
                         "name": "turnallon_id",
+                        "label": "scenario ID",
                         "label": "<p>Jeedom scenario ID for turn all on.</p>"
                     },
                     {
-                        "type": "label",
+                        "type": "text",
                         "name": "turnallon_action",
+                        "label": "Action",
                         "label": "<p>Jeedom scenario action for turn all on.</p>"
                     }
                 ]
