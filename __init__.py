@@ -357,21 +357,10 @@ class AlfredSkill(MycroftSkill):
                              self.handle_connect_lights_intent)
 
     @intent_handler
-    def handle_toggle_intent(self, message, group):
-        if "OffKeyword" in message.data:
-            dialog = 'turn.off'
-            group.on = False
-        else:
-            dialog = 'turn.on'
-            group.on = True
-        if self.verbose:
-            self.speak_dialog(dialog)
-
-    @intent_handler
     def handle_turnallon_scene_intent(self, message, group):
         scene_name = message.data['Scene'].lower()
         scene_id = self.scenes_to_ids_map[scene_name]
-        self.speak_dialog("I'll do this!");
+        self.speak_dialog('turn.on');
         if scene_id:
             if self.verbose:
                 self.speak_dialog('activate.scene',
