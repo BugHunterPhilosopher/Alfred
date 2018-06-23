@@ -91,10 +91,10 @@ def intent_handler(handler_function):
     return handler
 
 
-class JeedomSkill(MycroftSkill):
+class AlfredSkill(MycroftSkill):
 
     def __init__(self):
-        super(JeedomSkill, self).__init__(name="JeedomSkill")
+        super(AlfredSkill, self).__init__(name="AlfredSkill")
         self.brightness_step = int(self.settings.get('brightness_step',
                                                      DEFAULT_BRIGHTNESS_STEP))
         self.color_temperature_step = \
@@ -495,4 +495,4 @@ def _discover_bridge():
 
 
 def create_skill():
-    return JeedomSkill()
+    return AlfredSkill()

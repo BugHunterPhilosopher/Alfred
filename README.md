@@ -1,5 +1,5 @@
-## mycroft-jeedom
-Mycroft integration for Jeedom
+## Alfred
+A Mycroft integration for Jeedom
 
 ## Description 
 Trigger Jeedom scenarios and actions using plain old English.
