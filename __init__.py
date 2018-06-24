@@ -53,8 +53,9 @@ class AlfredSkill(MycroftSkill):
     def handle_turn_all_on_intent(self, message):
         self.speak('hold on')
 
-        headers = '{"jsonrpc": "2.0", "method": "object::all", "params": {"apikey": "' + self.apikey + '"}, "id": "1"}'
-        data = '{"apikey": "' + self.apikey + '", "type": "scenario", "id": 89, "action": "start"}'
+        headers = { }
+        data = '{"jsonrpc": "2.0", "method": "object::all", "params": {"apikey": "' + self.apikey + '"}, "id": "1", ' \
+            '"apikey": "' + self.apikey + '", "type": "scenario", "id": 89, "action": "start"}'
         url = self.jeedomaddress + "/core/api/jeeApi.php"
 
         response = requests.get(url, params=data, headers=headers)
