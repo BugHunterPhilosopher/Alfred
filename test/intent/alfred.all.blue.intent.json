@@ -3,7 +3,9 @@
   "intent_type": "AlfredAllBlueIntent",
   "intent": {
     "Turn": "turn",
-    "LivingRoom": "living room",
+    "The": "the",
+    "Living": "living",
+    "Room": "room",
     "Blue": "blue"
   }
 }
