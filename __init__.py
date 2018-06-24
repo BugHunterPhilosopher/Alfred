@@ -105,7 +105,7 @@ class AlfredSkill(MycroftSkill):
             .build()
         self.register_intent(turn_all_on_intent, self.handle_turn_all_on_intent)
 
-    # @intent_handler(IntentBuilder("").require("Turn").require("LivingRoom").require("On"))
+    @intent_handler(IntentBuilder("").require("Turn").require("LivingRoom").require("On"))
     def handle_turn_all_on_intent(self, message):
         self.speak_dialog('turn.all.on')
 
