@@ -114,8 +114,7 @@ class AlfredSkill(MycroftSkill):
     def call_jeedom(self, action_id, action):
         with urllib.request.urlopen(self.jeedomaddress + "/core/api/jeeApi.php?apikey=" +
                                     self.apikey + "&type=scenario&id=" + action_id + "&action=" + action) as url:
-            s = url.read()
-            print(str(s))
+            url.read()
 
     def stop(self):
         pass
