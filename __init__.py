@@ -101,10 +101,11 @@ class AlfredSkill(MycroftSkill):
         """
         self.load_data_files(dirname(__file__))
 
-        # turn_all_on_intent = IntentBuilder("TurnAllOnIntent").require("TurnAllOnKeyword").build()
-        # self.register_intent(turn_all_on_intent, self.handle_turn_all_on_intent)
+        turn_all_on_intent = IntentBuilder("TurnAllOnIntent").require("Turn").require("LivingRoom").require("On")\
+            .build()
+        self.register_intent(turn_all_on_intent, self.handle_turn_all_on_intent)
 
-    @intent_handler(IntentBuilder("").require("Turn").require("LivingRoom").require("On"))
+    # @intent_handler(IntentBuilder("").require("Turn").require("LivingRoom").require("On"))
     def handle_turn_all_on_intent(self, message):
         self.speak_dialog('turn.all.on')
 
