@@ -16,7 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import urllib
+import urllib.request
 from os.path import dirname
 
 from adapt.intent import IntentBuilder
@@ -58,12 +58,11 @@ class AlfredSkill(MycroftSkill):
             '"apikey": "' + self.apikey + '", "type": "scenario", "id": 89, "action": "start"}'
         url = self.jeedomaddress + "/core/api/jeeApi.php"
 
-        urllib.urlopen(self.jeedomaddress + "/core/api/jeeApi.php?apikey=" +
-                       self.apikey + "&type=scenario&id=89&action=start")
-        # response = requests.get(url, params=data, headers=headers)
-        # print('code equals ' + str(response.status_code))
-        # print('text equals ' + response.text)
-
+        with urllib.request.urlopen(self.jeedomaddress + "/core/api/jeeApi.php?apikey=" +
+                       self.apikey + "&type=scenario&id=89&action=start") as url:
+            s = url.read()
+            print(s)
+            
     def stop(self):
         pass
 
