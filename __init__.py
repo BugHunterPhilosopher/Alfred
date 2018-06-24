@@ -16,7 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import urllib.request
+import http.client
 from os.path import dirname
 
 from adapt.intent import IntentBuilder
@@ -111,8 +111,10 @@ class AlfredSkill(MycroftSkill):
         self.call_jeedom(self.idblue, self.actionblue)
 
     def call_jeedom(self, action_id, action):
-        urllib.request.urlopen("{}/core/api/jeeApi.php?apikey={}&type=scenario&id={}&action={}".format(
-                self.jeedomaddress, self.apikey, action_id, action))
+        connection = http.client.HTTPSConnection("{}/core/api/jeeApi.php?apikey={}&type=scenario&id={}&action={}".format(
+                self.jeedomaddress), timeout=20)
+        connection.request('GET', "/core/api/jeeApi.php?apikey={}&type=scenario&id={}&action={}".format(
+                self.apikey, action_id, action))
 
     def stop(self):
         pass
