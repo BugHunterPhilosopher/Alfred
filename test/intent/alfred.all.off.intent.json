@@ -1,0 +1,9 @@
+{
+  "utterance": "turn all off",
+  "intent_type": "AlfredAllOffIntent",
+  "intent": {
+    "Turn": "turn",
+    "All": "all",
+    "Off": "off"
+  }
+}

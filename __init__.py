@@ -35,34 +35,93 @@ class AlfredSkill(MycroftSkill):
         self.apikey = ""
         self.jeedomaddress = ""
 
+        self.idon = ""
+        self.idoff = ""
+        self.idorange = ""
+        self.idred = ""
+        self.idgreen = ""
+        self.idblue = ""
+
+        self.actionon = ""
+        self.actionoff = ""
+        self.actionorange = ""
+        self.actionred = ""
+        self.actiongreen = ""
+        self.actionblue = ""
+
         # This method loads the files needed for the skill's functioning, and
         # creates and registers each intent that the skill uses
     def initialize(self):
         self.load_data_files(dirname(__file__))
 
-        wait_time_intent = IntentBuilder("AlfredIntent"). \
-            require("Turn").require("Living").require("Room").require("On").build()
+        all_on_intent = IntentBuilder("AlfredAllOnIntent"). \
+            require("Turn").require("All").require("On").build()
+        self.register_intent(all_on_intent, self.handle_all_on_intent)
 
-        self.register_intent(wait_time_intent, self.handle_turn_all_on_intent)
+        all_off_intent = IntentBuilder("AlfredAllOffIntent"). \
+            require("Turn").require("All").require("Off").build()
+        self.register_intent(all_off_intent, self.handle_all_off_intent)
+
+        all_orange_intent = IntentBuilder("AlfredAllOrangeIntent"). \
+            require("Turn").require("All").require("Orange").build()
+        self.register_intent(all_orange_intent, self.handle_all_orange_intent)
+
+        all_red_intent = IntentBuilder("AlfredAllRedIntent"). \
+            require("Turn").require("All").require("Red").build()
+        self.register_intent(all_red_intent, self.handle_all_red_intent)
+
+        all_green_intent = IntentBuilder("AlfredAllGreenIntent"). \
+            require("Turn").require("All").require("Green").build()
+        self.register_intent(all_green_intent, self.handle_all_green_intent)
+
+        all_blue_intent = IntentBuilder("AlfredAllBlueIntent"). \
+            require("Turn").require("All").require("Blue").build()
+        self.register_intent(all_blue_intent, self.handle_all_blue_intent)
 
         self.apikey = self.settings['apikey']
         print('apikey equals ' + self.apikey)
         self.jeedomaddress = self.settings['jeedomaddress']
         print('jeedomaddress equals ' + self.jeedomaddress)
 
-    def handle_turn_all_on_intent(self, message):
+        self.idon = self.settings['idon']
+        self.idoff = self.settings['idoff']
+        self.idorange = self.settings['idorange']
+        self.idred = self.settings['idred']
+        self.idgreen = self.settings['idgreen']
+        self.idblue = self.settings['idblue']
+
+        self.actionon = self.settings['actionon']
+        self.actionoff = self.settings['actionoff']
+        self.actionorange = self.settings['actionorange']
+        self.actionred = self.settings['actionred']
+        self.actiongreen = self.settings['actiongreen']
+        self.actionblue = self.settings['actionblue']
+
+    def handle_all_on_intent(self, message):
+        self.call_jeedom(str(self.idon, self.actionon))
+
+    def handle_all_off_intent(self, message):
+        self.call_jeedom(str(self.idoff, self.actionoff))
+
+    def handle_all_orange_intent(self, message):
+        self.call_jeedom(str(self.idorange, self.actionorange))
+
+    def handle_all_red_intent(self, message):
+        self.call_jeedom(str(self.idred, self.actionred))
+
+    def handle_all_green_intent(self, message):
+        self.call_jeedom(str(self.idgreen, self.actiongreen))
+
+    def handle_all_blue_intent(self, message):
+        self.call_jeedom(str(self.idblue, self.actionblue))
+
+    def call_jeedom(self, id, action):
         self.speak('hold on')
-
-        headers = { }
-        data = '{"jsonrpc": "2.0", "method": "object::all", "params": {"apikey": "' + self.apikey + '"}, "id": "1", ' \
-            '"apikey": "' + self.apikey + '", "type": "scenario", "id": 89, "action": "start"}'
-        url = self.jeedomaddress + "/core/api/jeeApi.php"
-
         with urllib.request.urlopen(self.jeedomaddress + "/core/api/jeeApi.php?apikey=" +
-                       self.apikey + "&type=scenario&id=89&action=start") as url:
+                                    self.apikey + "&type=scenario&id=" + id + "&action=" + action) as url:
             s = url.read()
             print(s)
-            
+
     def stop(self):
         pass
 

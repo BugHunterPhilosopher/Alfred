@@ -1,9 +1,9 @@
 {
   "utterance": "turn the living room on",
-  "intent_type": "AlfredIntent",
+  "intent_type": "AlfredAllOnIntent",
   "intent": {
     "Turn": "turn",
-    "LivingRoom": "the living room",
+    "All": "allm",
     "On": "on"
   }
 }

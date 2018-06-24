@@ -1,0 +1,9 @@
+{
+  "utterance": "turn all green",
+  "intent_type": "AlfredAllGreenIntent",
+  "intent": {
+    "Turn": "turn",
+    "All": "all",
+    "Green": "green"
+  }
+}

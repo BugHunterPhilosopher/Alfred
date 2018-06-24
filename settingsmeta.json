@@ -25,18 +25,74 @@
                     },                    {
                         "name": "apikey",
                         "type": "text",
-                        "label": "<p>Jeedom-provided API key (go to “General” → “Configuration” → “General” tab.</p>",
+                        "label": "<p>Jeedom-provided API key (go to “General” → “Configuration” → “API” tab. And authorize HTTP API access rights.</p>",
                         "value": ""
                     },
                     {
-                        "name": "turnallon_id",
+                        "name": "idon",
                         "type": "text",
                         "label": "<p>Jeedom scenario ID for turn all on.</p>"
                     },
                     {
-                        "name": "turnallon_action",
+                        "name": "actionon",
                         "type": "text",
-                        "label": "<p>Jeedom scenario action for turn all on.</p>"
+                        "label": "<p>Jeedom scenario action for turn all on.</p>",
+                        "value": "start"
+                    },
+                    {
+                        "name": "idoff",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario ID for turn all off.</p>"
+                    },
+                    {
+                        "name": "actionoff",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario action for turn all off.</p>",
+                        "value": "start"
+                    },
+                    {
+                        "name": "idorange",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario ID for turn all orange.</p>"
+                    },
+                    {
+                        "name": "actionorange",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario action for turn all orange.</p>",
+                        "value": "start"
+                    },
+                    {
+                        "name": "idred",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario ID for turn all red.</p>"
+                    },
+                    {
+                        "name": "actionred",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario action for turn all red.</p>",
+                        "value": "start"
+                    },
+                    {
+                        "name": "idgreen",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario ID for turn all green.</p>"
+                    },
+                    {
+                        "name": "actiongreen",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario action for turn all green.</p>",
+                        "value": "start"
+                    },
+                    {
+                        "name": "idblue",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario ID for turn all blue.</p>"
+                    },
+                    {
+                        "name": "actionblue",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario action for turn all blue.</p>",
+                        "value": "start"
                     }
                 ]
             }
