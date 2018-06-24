@@ -54,28 +54,22 @@ class AlfredSkill(MycroftSkill):
     def initialize(self):
         self.load_data_files(dirname(__file__))
 
-        all_on_intent = IntentBuilder("AlfredAllOnIntent"). \
-            require("Turn").require("The").require("Living").require("Room").require("On").build()
+        all_on_intent = IntentBuilder("AlfredAllOnIntent").require("On").build()
         self.register_intent(all_on_intent, self.handle_all_on_intent)
 
-        all_off_intent = IntentBuilder("AlfredAllOffIntent"). \
-            require("Turn").require("The").require("Living").require("Room").require("Off").build()
+        all_off_intent = IntentBuilder("AlfredAllOffIntent").require("Off").build()
         self.register_intent(all_off_intent, self.handle_all_off_intent)
 
-        all_orange_intent = IntentBuilder("AlfredAllOrangeIntent"). \
-            require("Turn").require("The").require("Living").require("Room").require("Orange").build()
+        all_orange_intent = IntentBuilder("AlfredAllOrangeIntent").require("Orange").build()
         self.register_intent(all_orange_intent, self.handle_all_orange_intent)
 
-        all_red_intent = IntentBuilder("AlfredAllRedIntent"). \
-            require("Turn").require("The").require("Living").require("Room").require("Red").build()
+        all_red_intent = IntentBuilder("AlfredAllRedIntent").require("Red").build()
         self.register_intent(all_red_intent, self.handle_all_red_intent)
 
-        all_green_intent = IntentBuilder("AlfredAllGreenIntent"). \
-            require("Turn").require("The").require("Living").require("Room").require("Green").build()
+        all_green_intent = IntentBuilder("AlfredAllGreenIntent").require("Green").build()
         self.register_intent(all_green_intent, self.handle_all_green_intent)
 
-        all_blue_intent = IntentBuilder("AlfredAllBlueIntent"). \
-            require("Turn").require("The").require("Living").require("Room").require("Blue").build()
+        all_blue_intent = IntentBuilder("AlfredAllBlueIntent").require("Blue").build()
         self.register_intent(all_blue_intent, self.handle_all_blue_intent)
 
         self.apikey = self.settings['apikey']

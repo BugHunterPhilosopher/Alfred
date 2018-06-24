@@ -1,11 +1,7 @@
 {
-  "utterance": "turn the living room off",
+  "utterance": "off",
   "intent_type": "AlfredAllOffIntent",
   "intent": {
-    "Turn": "turn",
-    "The": "the",
-    "Living": "living",
-    "Room": "room",
     "Off": "off"
   }
 }

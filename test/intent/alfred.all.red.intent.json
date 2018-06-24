@@ -1,11 +1,7 @@
 {
-  "utterance": "turn the living room red",
+  "utterance": "red",
   "intent_type": "AlfredAllRedIntent",
   "intent": {
-    "Turn": "turn",
-    "The": "the",
-    "Living": "living",
-    "Room": "room",
     "Red": "red"
   }
 }
