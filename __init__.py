@@ -78,7 +78,7 @@ class AlfredSkill(MycroftSkill):
         print('jeedomaddress equals ' + self.jeedomaddress)
 
         self.idon = self.settings['idon']
-        print("type: " + type(self.idon))
+        type(self.idon)
         self.idoff = self.settings['idoff']
         self.idorange = self.settings['idorange']
         self.idred = self.settings['idred']
@@ -86,7 +86,7 @@ class AlfredSkill(MycroftSkill):
         self.idblue = self.settings['idblue']
 
         self.actionon = self.settings['actionon']
-        print("type: " + type(self.actionon))
+        type(self.actionon)
         self.actionoff = self.settings['actionoff']
         self.actionorange = self.settings['actionorange']
         self.actionred = self.settings['actionred']
