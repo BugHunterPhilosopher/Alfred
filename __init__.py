@@ -27,15 +27,8 @@ LOGGER = getLogger(__name__)
 
 
 class AlfredSkill(MycroftSkill):
-
     def __init__(self):
         super(AlfredSkill, self).__init__(name="AlfredSkill")
-
-        verbose = self.settings.get('verbose', False)
-        if type(verbose) == str:
-            verbose = verbose.lower()
-            verbose = True if verbose == 'true' else False
-        self.verbose = verbose
 
     @intent_handler(IntentBuilder("AlfredIntent").require("Turn").require("LivingRoom").require("On"))
     def handle_turn_all_on_intent(self, message):
