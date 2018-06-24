@@ -18,57 +18,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 from adapt.intent import IntentBuilder
-from mycroft.skills.core import MycroftSkill
+from mycroft.skills.core import MycroftSkill, intent_handler
 from mycroft.util.log import getLogger
 from os.path import dirname
-from phue import Group
-from phue import PhueRequestTimeout
-from requests import ConnectionError
-from requests import get
 
 __author__ = 'BugHunterPhilosopher'
 
 LOGGER = getLogger(__name__)
-
-
-def intent_handler(handler_function):
-    """
-    Decorate handler functions with connection and
-    error handling.
-
-    Parameters
-    ----------
-    handler_function : callable
-
-    Returns
-    -------
-    callable
-
-    """
-    def handler(self, message):
-        if message.type == 'ConnectLightsIntent' \
-                or self.connected or self._connect_to_bridge():
-            group = self.default_group
-            if "Group" in message.data:
-                name = message.data["Group"].lower()
-                group_id = self.groups_to_ids_map[name]
-                group = Group(self.bridge, group_id)
-            try:
-                handler_function(self, message, group)
-            except PhueRequestTimeout:
-                self.speak_dialog('unable.to.perform.action')
-            except Exception as e:
-                if 'No route to host' in e.args:
-                    if self.user_supplied_ip:
-                        self.speak_dialog('no.route')
-                        return
-                    else:
-                        self.speak_dialog('could.not.communicate')
-                        if self._connect_to_bridge(True):
-                            self.handle_intent(message)
-                else:
-                    raise
-    return handler
 
 
 class AlfredSkill(MycroftSkill):
@@ -82,15 +38,15 @@ class AlfredSkill(MycroftSkill):
             verbose = True if verbose == 'true' else False
         self.verbose = verbose
 
-    @property
+    # @property
     def connected(self):
         return True
 
-    @property
+    # @property
     def user_supplied_ip(self):
         return self.settings.get('ip') != ''
 
-    @property
+    # @property
     def user_supplied_username(self):
         return self.settings.get('username') != ''
 
@@ -100,10 +56,6 @@ class AlfredSkill(MycroftSkill):
         and build/register intents.
         """
         self.load_data_files(dirname(__file__))
-
-        turn_all_on_intent = IntentBuilder("TurnAllOnIntent").require("Turn").require("LivingRoom").require("On")\
-            .build()
-        self.register_intent(turn_all_on_intent, self.handle_turn_all_on_intent)
 
     @intent_handler(IntentBuilder("").require("Turn").require("LivingRoom").require("On"))
     def handle_turn_all_on_intent(self, message):
