@@ -51,6 +51,7 @@ class AlfredSkill(MycroftSkill):
 
         # This method loads the files needed for the skill's functioning, and
         # creates and registers each intent that the skill uses
+
     def initialize(self):
         self.load_data_files(dirname(__file__))
 
@@ -112,9 +113,9 @@ class AlfredSkill(MycroftSkill):
         self.call_jeedom(self.idblue, self.actionblue)
 
     def call_jeedom(self, action_id, action):
-        with urllib.request.urlopen(self.jeedomaddress + "/core/api/jeeApi.php?apikey=" +
-                                    self.apikey + "&type=scenario&id=" + action_id + "&action=" + action) as url:
-            url.read()
+        with urllib.request.urlopen("{}/core/api/jeeApi.php?apikey={}&type=scenario&id={}&action={}".format(
+                self.jeedomaddress, self.apikey, action_id, action)) as url:
+                url.read()
 
     def stop(self):
         pass
