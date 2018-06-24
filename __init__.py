@@ -30,7 +30,7 @@ class AlfredSkill(MycroftSkill):
     def __init__(self):
         super(AlfredSkill, self).__init__(name="AlfredSkill")
 
-    @intent_handler(IntentBuilder("AlfredIntent").require("Turn"))
+    @intent_handler(IntentBuilder("AlfredIntent").require("Turn").require("LivingRoom").require("On"))
     def handle_turn_all_on_intent(self, message):
         self.speak_dialog('turn.all.on')
 
