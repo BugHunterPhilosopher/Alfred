@@ -20,7 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
 from mycroft.util.log import getLogger
-from os.path import dirname
 
 __author__ = 'BugHunterPhilosopher'
 
@@ -38,26 +37,13 @@ class AlfredSkill(MycroftSkill):
             verbose = True if verbose == 'true' else False
         self.verbose = verbose
 
-    # @property
-    def connected(self):
-        return True
-
-    # @property
-    def user_supplied_ip(self):
-        return self.settings.get('ip') != ''
-
-    # @property
-    def user_supplied_username(self):
-        return self.settings.get('username') != ''
-
     def initialize(self):
         """
         Attempt to connect to the bridge,
         and build/register intents.
         """
-        self.load_data_files(dirname(__file__))
 
-    @intent_handler(IntentBuilder("").require("Turn").require("LivingRoom").require("On"))
+    @intent_handler(IntentBuilder("AlfredIntent").require("Turn").require("LivingRoom").require("On"))
     def handle_turn_all_on_intent(self, message):
         self.speak_dialog('turn.all.on')
 
