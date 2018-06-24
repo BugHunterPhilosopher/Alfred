@@ -35,6 +35,8 @@ class AlfredSkill(MycroftSkill):
         self.apikey = ""
         self.jeedomaddress = ""
 
+        self.idopen = ""
+        self.idclose = ""
         self.idon = ""
         self.idoff = ""
         self.idorange = ""
@@ -42,6 +44,8 @@ class AlfredSkill(MycroftSkill):
         self.idgreen = ""
         self.idblue = ""
 
+        self.actionopen = ""
+        self.actionclose = ""
         self.actionon = ""
         self.actionoff = ""
         self.actionorange = ""
@@ -54,6 +58,12 @@ class AlfredSkill(MycroftSkill):
 
     def initialize(self):
         self.load_data_files(dirname(__file__))
+
+        all_open_intent = IntentBuilder("AlfredAllOpenIntent").require("Open").build()
+        self.register_intent(all_open_intent, self.handle_all_open_intent)
+
+        all_close_intent = IntentBuilder("AlfredAllCloseIntent").require("Close").build()
+        self.register_intent(all_close_intent, self.handle_all_close_intent)
 
         all_on_intent = IntentBuilder("AlfredAllOnIntent").require("On").build()
         self.register_intent(all_on_intent, self.handle_all_on_intent)
@@ -78,6 +88,8 @@ class AlfredSkill(MycroftSkill):
         self.jeedomaddress = self.settings['jeedomaddress']
         print('jeedomaddress equals ' + self.jeedomaddress)
 
+        self.idopen = self.settings['idopen']
+        self.idclose = self.settings['idclose']
         self.idon = self.settings['idon']
         self.idoff = self.settings['idoff']
         self.idorange = self.settings['idorange']
@@ -85,12 +97,20 @@ class AlfredSkill(MycroftSkill):
         self.idgreen = self.settings['idgreen']
         self.idblue = self.settings['idblue']
 
+        self.actionopen = self.settings['actionopen']
+        self.actionclose = self.settings['actionclose']
         self.actionon = self.settings['actionon']
         self.actionoff = self.settings['actionoff']
         self.actionorange = self.settings['actionorange']
         self.actionred = self.settings['actionred']
         self.actiongreen = self.settings['actiongreen']
         self.actionblue = self.settings['actionblue']
+
+    def handle_all_open_intent(self, message):
+        self.call_jeedom(self.idopen, self.actionopen)
+
+    def handle_all_close_intent(self, message):
+        self.call_jeedom(self.idclose, self.actionclose)
 
     def handle_all_on_intent(self, message):
         self.call_jeedom(self.idon, self.actionon)

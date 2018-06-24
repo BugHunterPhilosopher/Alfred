@@ -29,6 +29,28 @@
                         "value": ""
                     },
                     {
+                        "name": "idopen",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario ID for open shutter.</p>"
+                    },
+                    {
+                        "name": "actionopen",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario action for open shutter.</p>",
+                        "value": "start"
+                    },
+                    {
+                        "name": "idclose",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario ID for close shutter.</p>"
+                    },
+                    {
+                        "name": "actionclose",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario action for close shutter.</p>",
+                        "value": "start"
+                    },
+                    {
                         "name": "idon",
                         "type": "text",
                         "label": "<p>Jeedom scenario ID for turn all on.</p>"

@@ -1,0 +1,7 @@
+{
+  "utterance": "close",
+  "intent_type": "AlfredAllCloseIntent",
+  "intent": {
+    "Close": "close"
+  }
+}

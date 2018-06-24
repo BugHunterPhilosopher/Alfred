@@ -1,0 +1,7 @@
+{
+  "utterance": "open",
+  "intent_type": "AlfredAllOpenIntent",
+  "intent": {
+    "Open": "open"
+  }
+}
