@@ -21,6 +21,7 @@ from os.path import dirname
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
 from mycroft.util.log import getLogger
+import  requests
 
 __author__ = 'BugHunterPhilosopher'
 
@@ -43,6 +44,12 @@ class AlfredSkill(MycroftSkill):
 
     def handle_turn_all_on_intent(self, message):
         self.speak('hold on')
+        apikey = self.settings.get('apikey')
+        jeedomaddress = self.settings.get('jeedomaddress')
+        headers = {}
+        data = '{"apikey": "' + apikey + '", "type": "scenario", "id": 89, "action": "start"}'
+        url = jeedomaddress + "/core/api/jeeApi.php"
+        requests.get(url, params=data, headers=headers)
 
     def stop(self):
         pass

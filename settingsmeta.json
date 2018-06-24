@@ -46,10 +46,15 @@
                         "value": 0
                     },
                     {
+                        "name": "jeedomaddress",
+                        "type": "text",
+                        "label": "<p>IP or host name of Jeedom server, with http:// or https://.</p>",
+                        "value": ""
+                    },                    {
                         "name": "apikey",
                         "type": "text",
                         "label": "<p>Jeedom-provided API key (go to “General” → “Configuration” → “General” tab.</p>",
-                        "value": "127.0.0.1"
+                        "value": ""
                     },
                     {
                         "name": "turnallon_id",
