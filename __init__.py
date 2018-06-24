@@ -98,22 +98,22 @@ class AlfredSkill(MycroftSkill):
         self.actionblue = self.settings['actionblue']
 
     def handle_all_on_intent(self, message):
-        self.call_jeedom(str(self.idon, self.actionon))
+        self.call_jeedom(str(self.idon), self.actionon)
 
     def handle_all_off_intent(self, message):
-        self.call_jeedom(str(self.idoff, self.actionoff))
+        self.call_jeedom(str(self.idoff), self.actionoff)
 
     def handle_all_orange_intent(self, message):
-        self.call_jeedom(str(self.idorange, self.actionorange))
+        self.call_jeedom(str(self.idorange), self.actionorange)
 
     def handle_all_red_intent(self, message):
-        self.call_jeedom(str(self.idred, self.actionred))
+        self.call_jeedom(str(self.idred), self.actionred)
 
     def handle_all_green_intent(self, message):
-        self.call_jeedom(str(self.idgreen, self.actiongreen))
+        self.call_jeedom(str(self.idgreen), self.actiongreen)
 
     def handle_all_blue_intent(self, message):
-        self.call_jeedom(str(self.idblue, self.actionblue))
+        self.call_jeedom(str(self.idblue), self.actionblue)
 
     def call_jeedom(self, id, action):
         self.speak('hold on')
