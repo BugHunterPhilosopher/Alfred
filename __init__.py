@@ -37,15 +37,12 @@ class AlfredSkill(MycroftSkill):
             verbose = True if verbose == 'true' else False
         self.verbose = verbose
 
-    def initialize(self):
-        """
-        Attempt to connect to the bridge,
-        and build/register intents.
-        """
-
     @intent_handler(IntentBuilder("AlfredIntent").require("Turn").require("LivingRoom").require("On"))
     def handle_turn_all_on_intent(self, message):
         self.speak_dialog('turn.all.on')
+
+    def stop(self):
+        pass
 
 
 def create_skill():
