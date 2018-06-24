@@ -79,7 +79,6 @@ class AlfredSkill(MycroftSkill):
         print('jeedomaddress equals ' + self.jeedomaddress)
 
         self.idon = self.settings['idon']
-        print("type: " + str(type(self.idon)))
         self.idoff = self.settings['idoff']
         self.idorange = self.settings['idorange']
         self.idred = self.settings['idred']
@@ -87,7 +86,6 @@ class AlfredSkill(MycroftSkill):
         self.idblue = self.settings['idblue']
 
         self.actionon = self.settings['actionon']
-        print("type: " + str(type(self.actionon)))
         self.actionoff = self.settings['actionoff']
         self.actionorange = self.settings['actionorange']
         self.actionred = self.settings['actionred']
@@ -113,10 +111,8 @@ class AlfredSkill(MycroftSkill):
         self.call_jeedom(self.idblue, self.actionblue)
 
     def call_jeedom(self, action_id, action):
-        with urllib.request.urlopen("{}/core/api/jeeApi.php?apikey={}&type=scenario&id={}&action={}".format(
-                self.jeedomaddress, self.apikey, action_id, action)) as url:
-                # url.read()
-                pass
+        urllib.request.urlopen("{}/core/api/jeeApi.php?apikey={}&type=scenario&id={}&action={}".format(
+                self.jeedomaddress, self.apikey, action_id, action))
 
     def stop(self):
         pass
