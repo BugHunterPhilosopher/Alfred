@@ -32,6 +32,9 @@ class AlfredSkill(MycroftSkill):
     def __init__(self):
         super(AlfredSkill, self).__init__(name="AlfredSkill")
 
+        self.apikey = ""
+        self.jeedomaddress = ""
+
         # This method loads the files needed for the skill's functioning, and
         # creates and registers each intent that the skill uses
     def initialize(self):
@@ -42,15 +45,18 @@ class AlfredSkill(MycroftSkill):
 
         self.register_intent(wait_time_intent, self.handle_turn_all_on_intent)
 
+        self.apikey = self.settings['apikey']
+        print('apikey equals ' + self.apikey)
+        self.jeedomaddress = self.settings['jeedomaddress']
+        print('jeedomaddress equals ' + self.jeedomaddress)
+
     def handle_turn_all_on_intent(self, message):
         self.speak('hold on')
-        apikey = self.settings['apikey']
-        print('apikey equals ' + apikey)
-        jeedomaddress = self.settings['jeedomaddress']
-        print('jeedomaddress equals ' + jeedomaddress)
+
         headers = {}
-        data = '{"apikey": "' + apikey + '", "type": "scenario", "id": 89, "action": "start"}'
-        url = jeedomaddress + "/core/api/jeeApi.php"
+        data = '{"apikey": "' + self.apikey + '", "type": "scenario", "id": 89, "action": "start"}'
+        url = self.jeedomaddress + "/core/api/jeeApi.php"
+
         response = requests.get(url, params=data, headers=headers)
         print('code equals ' + response.status_code)
         print('text equals ' + response.text)
