@@ -48,7 +48,7 @@
                     {
                         "name": "jeedomaddress",
                         "type": "text",
-                        "label": "<p>IP or host name of Jeedom server, with http:// or https://.</p>",
+                        "label": "<p>IP or host name of Jeedom server, including the 'http://' or 'https://' part.</p>",
                         "value": ""
                     },                    {
                         "name": "apikey",

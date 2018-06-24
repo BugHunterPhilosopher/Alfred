@@ -49,7 +49,11 @@ class AlfredSkill(MycroftSkill):
         headers = {}
         data = '{"apikey": "' + apikey + '", "type": "scenario", "id": 89, "action": "start"}'
         url = jeedomaddress + "/core/api/jeeApi.php"
-        requests.get(url, params=data, headers=headers)
+        response = requests.get(url, params=data, headers=headers)
+        print('code equals ' + response.status_code)
+        print('text equals ' + response.text)
+        self.speak('code equals ' + response.status_code)
+        self.speak('text equals ' + response.text)
 
     def stop(self):
         pass
