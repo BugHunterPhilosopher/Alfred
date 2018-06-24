@@ -45,7 +45,9 @@ class AlfredSkill(MycroftSkill):
     def handle_turn_all_on_intent(self, message):
         self.speak('hold on')
         apikey = self.settings.get('apikey')
+        print('apikey equals ' + apikey)
         jeedomaddress = self.settings.get('jeedomaddress')
+        print('jeedomaddress equals ' + jeedomaddress)
         headers = {}
         data = '{"apikey": "' + apikey + '", "type": "scenario", "id": 89, "action": "start"}'
         url = jeedomaddress + "/core/api/jeeApi.php"
