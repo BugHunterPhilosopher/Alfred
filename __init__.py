@@ -31,9 +31,9 @@ LOGGER = getLogger(__name__)
 class AlfredSkill(MycroftSkill):
     def __init__(self):
         super(AlfredSkill, self).__init__(name="AlfredSkill")
-        self.apikey = self.config.get('apikey')
+        self.apikey = self.settings['apikey']
         print('apikey equals ' + self.apikey)
-        self.jeedomaddress = self.config.get('jeedomaddress')
+        self.jeedomaddress = self.settings['jeedomaddress']
         print('jeedomaddress equals ' + self.jeedomaddress)
 
         # This method loads the files needed for the skill's functioning, and
