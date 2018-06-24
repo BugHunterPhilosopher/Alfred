@@ -3,7 +3,7 @@
   "intent_type": "AlfredAllOnIntent",
   "intent": {
     "Turn": "turn",
-    "All": "allm",
+    "LivingRoom": "living room",
     "On": "on"
   }
 }

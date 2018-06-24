@@ -1,9 +1,9 @@
 {
-  "utterance": "turn all green",
+  "utterance": "turn the living room green",
   "intent_type": "AlfredAllGreenIntent",
   "intent": {
     "Turn": "turn",
-    "All": "all",
+    "LivingRoom": "living room",
     "Green": "green"
   }
 }
