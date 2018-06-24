@@ -16,12 +16,12 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
+import urllib
 from os.path import dirname
 
 from adapt.intent import IntentBuilder
-from mycroft.skills.core import MycroftSkill, intent_handler
+from mycroft.skills.core import MycroftSkill
 from mycroft.util.log import getLogger
-import  requests
 
 __author__ = 'BugHunterPhilosopher'
 
@@ -58,9 +58,11 @@ class AlfredSkill(MycroftSkill):
             '"apikey": "' + self.apikey + '", "type": "scenario", "id": 89, "action": "start"}'
         url = self.jeedomaddress + "/core/api/jeeApi.php"
 
-        response = requests.get(url, params=data, headers=headers)
-        print('code equals ' + str(response.status_code))
-        print('text equals ' + response.text)
+        urllib.urlopen(self.jeedomaddress + "/core/api/jeeApi.php?apikey=" +
+                       self.apikey + "&type=scenario&id=89&action=start")
+        # response = requests.get(url, params=data, headers=headers)
+        # print('code equals ' + str(response.status_code))
+        # print('text equals ' + response.text)
 
     def stop(self):
         pass
