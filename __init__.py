@@ -55,27 +55,27 @@ class AlfredSkill(MycroftSkill):
         self.load_data_files(dirname(__file__))
 
         all_on_intent = IntentBuilder("AlfredAllOnIntent"). \
-            require("Turn").require("All").require("On").build()
+            require("Turn").require("LivingRoom").require("On").build()
         self.register_intent(all_on_intent, self.handle_all_on_intent)
 
         all_off_intent = IntentBuilder("AlfredAllOffIntent"). \
-            require("Turn").require("All").require("Off").build()
+            require("Turn").require("LivingRoom").require("Off").build()
         self.register_intent(all_off_intent, self.handle_all_off_intent)
 
         all_orange_intent = IntentBuilder("AlfredAllOrangeIntent"). \
-            require("Turn").require("All").require("Orange").build()
+            require("Turn").require("LivingRoom").require("Orange").build()
         self.register_intent(all_orange_intent, self.handle_all_orange_intent)
 
         all_red_intent = IntentBuilder("AlfredAllRedIntent"). \
-            require("Turn").require("All").require("Red").build()
+            require("Turn").require("LivingRoom").require("Red").build()
         self.register_intent(all_red_intent, self.handle_all_red_intent)
 
         all_green_intent = IntentBuilder("AlfredAllGreenIntent"). \
-            require("Turn").require("All").require("Green").build()
+            require("Turn").require("LivingRoom").require("Green").build()
         self.register_intent(all_green_intent, self.handle_all_green_intent)
 
         all_blue_intent = IntentBuilder("AlfredAllBlueIntent"). \
-            require("Turn").require("All").require("Blue").build()
+            require("Turn").require("LivingRoom").require("Blue").build()
         self.register_intent(all_blue_intent, self.handle_all_blue_intent)
 
         self.apikey = self.settings['apikey']
