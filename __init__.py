@@ -16,6 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
+from os.path import dirname
 
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
@@ -30,9 +31,18 @@ class AlfredSkill(MycroftSkill):
     def __init__(self):
         super(AlfredSkill, self).__init__(name="AlfredSkill")
 
-    @intent_handler(IntentBuilder("").require("Turn").require("Living").require("Room").require("On"))
+        # This method loads the files needed for the skill's functioning, and
+        # creates and registers each intent that the skill uses
+    def initialize(self):
+        self.load_data_files(dirname(__file__))
+
+        wait_time_intent = IntentBuilder("AlfredIntent"). \
+            require("Turn").require("Living").require("Room").require("On").build()
+
+        self.register_intent(wait_time_intent, self.handle_turn_all_on_intent)
+
     def handle_turn_all_on_intent(self, message):
-        self.speak_dialog('turn.all.on')
+        self.speak('hold on')
 
     def stop(self):
         pass
