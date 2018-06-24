@@ -58,7 +58,7 @@ class AlfredSkill(MycroftSkill):
         url = self.jeedomaddress + "/core/api/jeeApi.php"
 
         response = requests.get(url, params=data, headers=headers)
-        print('code equals ' + response.status_code)
+        print('code equals ' + int(response.status_code))
         print('text equals ' + response.text)
 
     def stop(self):
