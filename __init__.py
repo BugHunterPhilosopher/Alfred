@@ -90,7 +90,7 @@ class AlfredSkill(MycroftSkill):
 
         self.idopen = self.settings['idopen']
         self.idclose = self.settings['idclose']
-        self.idon = self.settings['id']
+        self.idon = self.settings['idon']
         self.idoff = self.settings['idoff']
         self.idorange = self.settings['idorange']
         self.idred = self.settings['idred']
