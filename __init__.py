@@ -65,11 +65,11 @@ class AlfredSkill(MycroftSkill):
         all_close_intent = IntentBuilder("AlfredAllCloseIntent").require("Close").build()
         self.register_intent(all_close_intent, self.handle_all_close_intent)
 
-        all_on_intent = IntentBuilder("AlfredAllOnIntent").require("On").build()
-        self.register_intent(all_on_intent, self.handle_all_on_intent)
+        all_white_intent = IntentBuilder("AlfredAllWhiteIntent").require("White").build()
+        self.register_intent(all_white_intent, self.handle_all_white_intent)
 
-        all_off_intent = IntentBuilder("AlfredAllOffIntent").require("Off").build()
-        self.register_intent(all_off_intent, self.handle_all_off_intent)
+        all_black_intent = IntentBuilder("AlfredAllBlackIntent").require("Black").build()
+        self.register_intent(all_black_intent, self.handle_all_black_intent)
 
         all_orange_intent = IntentBuilder("AlfredAllOrangeIntent").require("Orange").build()
         self.register_intent(all_orange_intent, self.handle_all_orange_intent)
@@ -90,7 +90,7 @@ class AlfredSkill(MycroftSkill):
 
         self.idopen = self.settings['idopen']
         self.idclose = self.settings['idclose']
-        self.idon = self.settings['idon']
+        self.idon = self.settings['id']
         self.idoff = self.settings['idoff']
         self.idorange = self.settings['idorange']
         self.idred = self.settings['idred']
@@ -112,10 +112,10 @@ class AlfredSkill(MycroftSkill):
     def handle_all_close_intent(self, message):
         self.call_jeedom(self.idclose, self.actionclose)
 
-    def handle_all_on_intent(self, message):
+    def handle_all_white_intent(self, message):
         self.call_jeedom(self.idon, self.actionon)
 
-    def handle_all_off_intent(self, message):
+    def handle_all_black_intent(self, message):
         self.call_jeedom(self.idoff, self.actionoff)
 
     def handle_all_orange_intent(self, message):

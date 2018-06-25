@@ -1,0 +1,7 @@
+{
+  "utterance": "white",
+  "intent_type": "AlfredAllWhiteIntent",
+  "intent": {
+    "White": "white"
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "utterance": "off",
-  "intent_type": "AlfredAllOffIntent",
-  "intent": {
-    "Off": "off"
-  }
-}
