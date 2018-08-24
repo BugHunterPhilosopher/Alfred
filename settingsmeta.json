@@ -25,7 +25,7 @@
                     {
                         "name": "apikey",
                         "type": "text",
-                        "label": "<p>Jeedom-provided API key (go to “General” → “Configuration” → “API” tab. And authorize HTTP API access rights.</p>",
+                        "label": "<p>Jeedom-provided API key (go to “General” → “Configuration” → “API” tab. And authorize HTTP API access rights.</p>"
                     },
                     {
                         "name": "idopen",
