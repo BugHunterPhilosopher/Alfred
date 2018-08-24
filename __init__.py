@@ -83,6 +83,9 @@ class AlfredSkill(MycroftSkill):
         all_blue_intent = IntentBuilder("AlfredAllBlueIntent").require("Blue").build()
         self.register_intent(all_blue_intent, self.handle_all_blue_intent)
 
+        all_cinema_intent = IntentBuilder("AlfredCinemaIntent").require("Cinema").build()
+        self.register_intent(all_cinema_intent, self.handle_cinema_intent)
+
         self.apikey = self.settings['apikey']
         print('apikey equals ' + self.apikey)
         self.jeedomaddress = self.settings['jeedomaddress']
@@ -96,6 +99,7 @@ class AlfredSkill(MycroftSkill):
         self.idred = self.settings['idred']
         self.idgreen = self.settings['idgreen']
         self.idblue = self.settings['idblue']
+        self.idcinema = self.settings['idcinema']
 
         self.actionopen = self.settings['actionopen']
         self.actionclose = self.settings['actionclose']
@@ -105,6 +109,7 @@ class AlfredSkill(MycroftSkill):
         self.actionred = self.settings['actionred']
         self.actiongreen = self.settings['actiongreen']
         self.actionblue = self.settings['actionblue']
+        self.actioncinema = self.settings['actioncinema']
 
     def handle_all_open_intent(self, message):
         self.call_jeedom(self.idopen, self.actionopen)
@@ -129,6 +134,9 @@ class AlfredSkill(MycroftSkill):
 
     def handle_all_blue_intent(self, message):
         self.call_jeedom(self.idblue, self.actionblue)
+
+    def handle_cinema_intent(self, message):
+        self.call_jeedom(self.idcinema, self.actioncinema)
 
     def call_jeedom(self, action_id, action):
         urllib.request.urlopen("{}/core/api/jeeApi.php?apikey={}&type=scenario&id={}&action={}".format(

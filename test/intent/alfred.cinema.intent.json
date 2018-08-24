@@ -1,0 +1,7 @@
+{
+  "utterance": "cinema",
+  "intent_type": "AlfredCinemaIntent",
+  "intent": {
+    "Cinema": "cinema"
+  }
+}

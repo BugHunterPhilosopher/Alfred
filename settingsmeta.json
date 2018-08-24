@@ -31,89 +31,99 @@
                     {
                         "name": "idopen",
                         "type": "text",
-                        "label": "<p>Jeedom scenario ID for open shutter.</p>"
+                        "label": "<p>Jeedom scenario ID for 'open shutter'.</p>"
                     },
                     {
                         "name": "actionopen",
                         "type": "text",
-                        "label": "<p>Jeedom scenario action for open shutter.</p>",
+                        "label": "<p>Jeedom scenario action for 'open shutter'.</p>",
                         "value": "start"
                     },
                     {
                         "name": "idclose",
                         "type": "text",
-                        "label": "<p>Jeedom scenario ID for close shutter.</p>"
+                        "label": "<p>Jeedom scenario ID for 'close shutter'.</p>"
                     },
                     {
                         "name": "actionclose",
                         "type": "text",
-                        "label": "<p>Jeedom scenario action for close shutter.</p>",
+                        "label": "<p>Jeedom scenario action for 'close shutter'.</p>",
                         "value": "start"
                     },
                     {
                         "name": "idon",
                         "type": "text",
-                        "label": "<p>Jeedom scenario ID for turn all on.</p>"
+                        "label": "<p>Jeedom scenario ID for 'turn all on'.</p>"
                     },
                     {
                         "name": "actionon",
                         "type": "text",
-                        "label": "<p>Jeedom scenario action for turn all on.</p>",
+                        "label": "<p>Jeedom scenario action for 'turn all on'.</p>",
                         "value": "start"
                     },
                     {
                         "name": "idoff",
                         "type": "text",
-                        "label": "<p>Jeedom scenario ID for turn all off.</p>"
+                        "label": "<p>Jeedom scenario ID for 'turn all off'.</p>"
                     },
                     {
                         "name": "actionoff",
                         "type": "text",
-                        "label": "<p>Jeedom scenario action for turn all off.</p>",
+                        "label": "<p>Jeedom scenario action for 'turn all off'.</p>",
                         "value": "start"
                     },
                     {
                         "name": "idorange",
                         "type": "text",
-                        "label": "<p>Jeedom scenario ID for turn all orange.</p>"
+                        "label": "<p>Jeedom scenario ID for 'turn all orange'.</p>"
                     },
                     {
                         "name": "actionorange",
                         "type": "text",
-                        "label": "<p>Jeedom scenario action for turn all orange.</p>",
+                        "label": "<p>Jeedom scenario action for 'turn all orange'.</p>",
                         "value": "start"
                     },
                     {
                         "name": "idred",
                         "type": "text",
-                        "label": "<p>Jeedom scenario ID for turn all red.</p>"
+                        "label": "<p>Jeedom scenario ID for 'turn all red'.</p>"
                     },
                     {
                         "name": "actionred",
                         "type": "text",
-                        "label": "<p>Jeedom scenario action for turn all red.</p>",
+                        "label": "<p>Jeedom scenario action for 'turn all red'.</p>",
                         "value": "start"
                     },
                     {
                         "name": "idgreen",
                         "type": "text",
-                        "label": "<p>Jeedom scenario ID for turn all green.</p>"
+                        "label": "<p>Jeedom scenario ID for 'turn all green'.</p>"
                     },
                     {
                         "name": "actiongreen",
                         "type": "text",
-                        "label": "<p>Jeedom scenario action for turn all green.</p>",
+                        "label": "<p>Jeedom scenario action for 'turn all green'.</p>",
                         "value": "start"
                     },
                     {
                         "name": "idblue",
                         "type": "text",
-                        "label": "<p>Jeedom scenario ID for turn all blue.</p>"
+                        "label": "<p>Jeedom scenario ID for 'turn all blue'.</p>"
                     },
                     {
                         "name": "actionblue",
                         "type": "text",
-                        "label": "<p>Jeedom scenario action for turn all blue.</p>",
+                        "label": "<p>Jeedom scenario action for 'turn all blue'.</p>",
+                        "value": "start"
+                    },
+                    },                    {
+                        "name": "idcinema",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario ID for 'turn home cinema on'.</p>"
+                    {
+                        "name": "actioncinema",
+                        "type": "text",
+                        "label": "<p>Jeedom scenario action for 'turn home cinema on'.</p>",
                         "value": "start"
                     }
                 ]
