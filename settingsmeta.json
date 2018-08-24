@@ -21,12 +21,10 @@
                         "name": "jeedomaddress",
                         "type": "text",
                         "label": "<p>IP or host name of Jeedom server, including the 'http://' or 'https://' part.</p>",
-                        "value": ""
                     },                    {
                         "name": "apikey",
                         "type": "text",
                         "label": "<p>Jeedom-provided API key (go to “General” → “Configuration” → “API” tab. And authorize HTTP API access rights.</p>",
-                        "value": ""
                     },
                     {
                         "name": "idopen",
