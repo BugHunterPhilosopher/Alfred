@@ -43,6 +43,7 @@ class AlfredSkill(MycroftSkill):
         self.idred = ""
         self.idgreen = ""
         self.idblue = ""
+        self.idcinema = ""
 
         self.actionopen = ""
         self.actionclose = ""
@@ -52,6 +53,7 @@ class AlfredSkill(MycroftSkill):
         self.actionred = ""
         self.actiongreen = ""
         self.actionblue = ""
+        self.actioncinema = ""
 
         # This method loads the files needed for the skill's functioning, and
         # creates and registers each intent that the skill uses
