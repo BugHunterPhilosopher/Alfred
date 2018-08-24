@@ -116,10 +116,11 @@
                         "label": "<p>Jeedom scenario action for 'turn all blue'.</p>",
                         "value": "start"
                     },
-                    },                    {
+                    {
                         "name": "idcinema",
                         "type": "text",
                         "label": "<p>Jeedom scenario ID for 'turn home cinema on'.</p>"
+                    },
                     {
                         "name": "actioncinema",
                         "type": "text",
