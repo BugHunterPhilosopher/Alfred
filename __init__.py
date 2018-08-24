@@ -85,8 +85,8 @@ class AlfredSkill(MycroftSkill):
         all_blue_intent = IntentBuilder("AlfredAllBlueIntent").require("Blue").build()
         self.register_intent(all_blue_intent, self.handle_all_blue_intent)
 
-        all_cinema_intent = IntentBuilder("AlfredCinemaIntent").require("Cinema").build()
-        self.register_intent(all_cinema_intent, self.handle_cinema_intent)
+        cinema_intent = IntentBuilder("AlfredCinemaIntent").require("Cinema").build()
+        self.register_intent(cinema_intent, self.handle_cinema_intent)
 
         self.apikey = self.settings['apikey']
         print('apikey equals ' + self.apikey)
