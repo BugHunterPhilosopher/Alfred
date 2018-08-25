@@ -76,6 +76,9 @@ class AlfredSkill(MycroftSkill):
         all_orange_intent = IntentBuilder("AlfredAllOrangeIntent").require("Orange").build()
         self.register_intent(all_orange_intent, self.handle_all_orange_intent)
 
+        all_on_intent = IntentBuilder("AlfredAllOnIntent").require("On").build()
+        self.register_intent(all_on_intent, self.handle_all_on_intent)
+
         all_red_intent = IntentBuilder("AlfredAllRedIntent").require("Red").build()
         self.register_intent(all_red_intent, self.handle_all_red_intent)
 
@@ -126,6 +129,9 @@ class AlfredSkill(MycroftSkill):
         self.call_jeedom(self.idoff, self.actionoff)
 
     def handle_all_orange_intent(self, message):
+        self.call_jeedom(self.idorange, self.actionorange)
+
+    def handle_all_on_intent(self, message):
         self.call_jeedom(self.idorange, self.actionorange)
 
     def handle_all_red_intent(self, message):

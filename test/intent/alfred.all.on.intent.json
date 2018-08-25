@@ -1,0 +1,7 @@
+{
+  "utterance": "on",
+  "intent_type": "AlfredAllOnIntent",
+  "intent": {
+    "On": "on"
+  }
+}
