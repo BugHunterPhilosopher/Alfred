@@ -22,6 +22,7 @@ from os.path import dirname
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill
 from mycroft.util.log import getLogger
+from pixel_ring import pixel_ring
 
 __author__ = 'BugHunterPhilosopher'
 
@@ -60,6 +61,8 @@ class AlfredSkill(MycroftSkill):
 
     def initialize(self):
         self.load_data_files(dirname(__file__))
+
+        self.add_event('mycroft.awoken', self.my_awoken_handler)
 
         all_open_intent = IntentBuilder("AlfredAllOpenIntent").require("Open").build()
         self.register_intent(all_open_intent, self.handle_all_open_intent)
@@ -116,6 +119,10 @@ class AlfredSkill(MycroftSkill):
         self.actionblue = self.settings['actionblue']
         self.actioncinema = self.settings['actioncinema']
 
+    def my_awoken_handler(self, message):
+        print('I\'m awake')
+        pixel_ring.think()
+
     def handle_all_open_intent(self, message):
         self.call_jeedom(self.idopen, self.actionopen)
 
@@ -147,6 +154,7 @@ class AlfredSkill(MycroftSkill):
         self.call_jeedom(self.idcinema, self.actioncinema)
 
     def call_jeedom(self, action_id, action):
+        pixel_ring.off()
         urllib.request.urlopen("{}/core/api/jeeApi.php?apikey={}&type=scenario&id={}&action={}".format(
                 self.jeedomaddress, self.apikey, action_id, action))
 
