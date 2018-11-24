@@ -62,7 +62,7 @@ class AlfredSkill(MycroftSkill):
     def initialize(self):
         self.load_data_files(dirname(__file__))
 
-        self.add_event('mycroft.awoken', self.my_awoken_handler)
+        self.add_event('recognizer_loop:record_begin', self.record_begin_handler)
 
         all_open_intent = IntentBuilder("AlfredAllOpenIntent").require("Open").build()
         self.register_intent(all_open_intent, self.handle_all_open_intent)
@@ -119,7 +119,7 @@ class AlfredSkill(MycroftSkill):
         self.actionblue = self.settings['actionblue']
         self.actioncinema = self.settings['actioncinema']
 
-    def my_awoken_handler(self, message):
+    def record_begin_handler(self, message):
         print('I\'m awake')
         pixel_ring.think()
 
