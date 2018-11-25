@@ -75,6 +75,7 @@ class AlfredSkill(MycroftSkill):
         pixel_ring.set_brightness(20)
 
         self.add_event('recognizer_loop:record_begin', self.record_begin_handler)
+        self.add_event('recognizer_loop:record_end', self.record_end_handler)
 
         all_open_intent = IntentBuilder("AlfredAllOpenIntent").require("Open").build()
         self.register_intent(all_open_intent, self.handle_all_open_intent)
@@ -134,6 +135,9 @@ class AlfredSkill(MycroftSkill):
     def record_begin_handler(self, message):
         print('I\'m awake')
         pixel_ring.think()
+
+    def record_end_handler(self, message):
+        pixel_ring.off()
 
     def handle_all_open_intent(self, message):
         self.call_jeedom(self.idopen, self.actionopen)
