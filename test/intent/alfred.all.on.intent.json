@@ -1,5 +1,5 @@
 {
-  "utterance": "on",
+  "utterance": "light",
   "intent_type": "AlfredAllOnIntent",
   "intent": {
     "On": "orange"
