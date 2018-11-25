@@ -73,6 +73,7 @@ class AlfredSkill(MycroftSkill):
         en.write(0)
 
         pixel_ring.set_brightness(20)
+        pixel_ring.wakeup()
 
         self.add_event('recognizer_loop:record_begin', self.record_begin_handler)
         self.add_event('recognizer_loop:record_end', self.record_end_handler)
