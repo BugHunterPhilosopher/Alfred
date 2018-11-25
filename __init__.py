@@ -16,9 +16,12 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
+import os
+import time
 import urllib.request
 from os.path import dirname
 
+import mraa
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill
 from mycroft.util.log import getLogger
@@ -61,6 +64,15 @@ class AlfredSkill(MycroftSkill):
 
     def initialize(self):
         self.load_data_files(dirname(__file__))
+
+        en = mraa.Gpio(12)
+        if os.geteuid() != 0:
+            time.sleep(1)
+
+        en.dir(mraa.DIR_OUT)
+        en.write(0)
+
+        pixel_ring.set_brightness(20)
 
         self.add_event('recognizer_loop:record_begin', self.record_begin_handler)
 
