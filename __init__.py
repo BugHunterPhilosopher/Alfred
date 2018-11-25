@@ -74,6 +74,8 @@ class AlfredSkill(MycroftSkill):
 
         pixel_ring.set_brightness(20)
         pixel_ring.wakeup()
+        time.sleep(1)
+        pixel_ring.off()
 
         self.add_event('recognizer_loop:record_begin', self.record_begin_handler)
         self.add_event('recognizer_loop:record_end', self.record_end_handler)
@@ -134,8 +136,16 @@ class AlfredSkill(MycroftSkill):
         self.actioncinema = self.settings['actioncinema']
 
     def record_begin_handler(self, message):
-        print('I\'m awake')
+        en = mraa.Gpio(12)
+        if os.geteuid() != 0:
+            time.sleep(1)
+
+        en.dir(mraa.DIR_OUT)
+        en.write(0)
+
+        pixel_ring.set_brightness(20)
         pixel_ring.think()
+        print('I\'m awake')
 
     def record_end_handler(self, message):
         pixel_ring.off()
