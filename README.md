@@ -12,7 +12,11 @@ Trigger Jeedom scenarios and actions using plain old English. If you are able to
 You must install Mycroft on a Repseaker Core V2 and do: 
 
 - sudo apt install python3-mraa libmraa1
-- /home/respeaker/mycroft-core/bin/mycroft-msm update https://github.com/BugHunterPhilosopher/Alfred.git
+- mycroft-core/bin/mycroft-msm install https://github.com/BugHunterPhilosopher/Alfred.git
+
+To update to last version:
+
+- mycroft-core/bin/mycroft-msm update https://github.com/BugHunterPhilosopher/Alfred.git
 
 ## Credits 
 BugHunterPhilosopher
