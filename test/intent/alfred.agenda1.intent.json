@@ -1,7 +1,7 @@
 {
-  "utterance": "agenda one",
+  "utterance": "agenda 1",
   "intent_type": "AlfredAgenda1Intent",
   "intent": {
-    "Agenda one": "agenda1"
+    "Agenda 1": "agenda1"
   }
 }
