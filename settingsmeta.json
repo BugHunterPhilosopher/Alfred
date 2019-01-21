@@ -111,6 +111,26 @@
                 "name": "actioncinema",
                 "type": "text",
                 "label": "<p>Jeedom scenario action for 'turn home cinema on'. Try 'start'.</p>"
+            },
+            {
+                "name": "idagenda1",
+                "type": "text",
+                "label": "<p>Jeedom scenario ID for 'Agenda 1'.</p>"
+            },
+            {
+                "name": "actionagenda1",
+                "type": "text",
+                "label": "<p>Jeedom scenario action for 'Agenda 1'. Try 'start'.</p>"
+            },
+            {
+                "name": "idagenda2",
+                "type": "text",
+                "label": "<p>Jeedom scenario ID for 'Agenda 2'.</p>"
+            },
+            {
+                "name": "actionagenda2",
+                "type": "text",
+                "label": "<p>Jeedom scenario action for 'Agenda 2'. Try 'start'.</p>"
             }]
             }
         ]

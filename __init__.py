@@ -48,6 +48,8 @@ class AlfredSkill(MycroftSkill):
         self.idgreen = ""
         self.idblue = ""
         self.idcinema = ""
+        self.idagenda1 = ""
+        self.idagenda2 = ""
 
         self.actionopen = ""
         self.actionclose = ""
@@ -58,6 +60,8 @@ class AlfredSkill(MycroftSkill):
         self.actiongreen = ""
         self.actionblue = ""
         self.actioncinema = ""
+        self.actionagenda1 = ""
+        self.actionagenda2 = ""
 
         # This method loads the files needed for the skill's functioning, and
         # creates and registers each intent that the skill uses
@@ -110,6 +114,12 @@ class AlfredSkill(MycroftSkill):
         cinema_intent = IntentBuilder("AlfredCinemaIntent").require("Cinema").build()
         self.register_intent(cinema_intent, self.handle_cinema_intent)
 
+        agenda1_intent = IntentBuilder("AlfredAgenda1Intent").require("Agenda1").build()
+        self.register_intent(agenda1_intent, self.handle_agenda1_intent)
+
+        agenda2_intent = IntentBuilder("AlfredAgenda2Intent").require("Agenda2").build()
+        self.register_intent(agenda2_intent, self.handle_agenda2_intent)
+
         self.apikey = self.settings['apikey']
         print('apikey equals ' + self.apikey)
         self.jeedomaddress = self.settings['jeedomaddress']
@@ -124,6 +134,8 @@ class AlfredSkill(MycroftSkill):
         self.idgreen = self.settings['idgreen']
         self.idblue = self.settings['idblue']
         self.idcinema = self.settings['idcinema']
+        self.idagenda1 = self.settings['idagenda1']
+        self.idagenda2 = self.settings['idagenda2']
 
         self.actionopen = self.settings['actionopen']
         self.actionclose = self.settings['actionclose']
@@ -134,6 +146,8 @@ class AlfredSkill(MycroftSkill):
         self.actiongreen = self.settings['actiongreen']
         self.actionblue = self.settings['actionblue']
         self.actioncinema = self.settings['actioncinema']
+        self.actionagenda1 = self.settings['actionagenda1']
+        self.actionagenda2 = self.settings['actionagenda2']
 
     def record_begin_handler(self, message):
         en = mraa.Gpio(12)
@@ -179,6 +193,12 @@ class AlfredSkill(MycroftSkill):
 
     def handle_cinema_intent(self, message):
         self.call_jeedom(self.idcinema, self.actioncinema)
+
+    def handle_agenda1_intent(self, message):
+        self.call_jeedom(self.idagenda1, self.actionagenda1)
+
+    def handle_agenda2_intent(self, message):
+        self.call_jeedom(self.idagenda2, self.actionagenda2)
 
     def call_jeedom(self, action_id, action):
         pixel_ring.off()

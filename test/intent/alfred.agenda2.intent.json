@@ -1,0 +1,7 @@
+{
+  "utterance": "agenda two",
+  "intent_type": "AlfredAgenda2Intent",
+  "intent": {
+    "Agenda two": "agenda2"
+  }
+}
