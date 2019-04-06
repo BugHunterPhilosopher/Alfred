@@ -180,7 +180,7 @@ class AlfredSkill(MycroftSkill):
         self.call_jeedom(self.idorange, self.actionorange)
 
     def handle_all_on_intent(self, message):
-        self.call_jeedom(self.idorange, self.actionorange)
+        self.call_jeedom(self.idon, self.actionon)
 
     def handle_all_red_intent(self, message):
         self.call_jeedom(self.idred, self.actionred)
