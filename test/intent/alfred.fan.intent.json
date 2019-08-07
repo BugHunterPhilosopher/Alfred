@@ -1,0 +1,7 @@
+{
+  "utterance": "fan",
+  "intent_type": "AlfredFanIntent",
+  "intent": {
+    "Fan": "fan"
+  }
+}

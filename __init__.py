@@ -50,6 +50,7 @@ class AlfredSkill(MycroftSkill):
         self.idcinema = ""
         self.idagenda1 = ""
         self.idagenda2 = ""
+        self.idfan = ""
 
         self.actionopen = ""
         self.actionclose = ""
@@ -62,6 +63,7 @@ class AlfredSkill(MycroftSkill):
         self.actioncinema = ""
         self.actionagenda1 = ""
         self.actionagenda2 = ""
+        self.actionfan = ""
 
         # This method loads the files needed for the skill's functioning, and
         # creates and registers each intent that the skill uses
@@ -120,6 +122,9 @@ class AlfredSkill(MycroftSkill):
         agenda2_intent = IntentBuilder("AlfredAgenda2Intent").require("Agenda2").build()
         self.register_intent(agenda2_intent, self.handle_agenda2_intent)
 
+        fan_intent = IntentBuilder("AlfredFanIntent").require("Fan").build()
+        self.register_intent(fan_intent, self.handle_fan_intent)
+
         self.apikey = self.settings['apikey']
         print('apikey equals ' + self.apikey)
         self.jeedomaddress = self.settings['jeedomaddress']
@@ -136,6 +141,7 @@ class AlfredSkill(MycroftSkill):
         self.idcinema = self.settings['idcinema']
         self.idagenda1 = self.settings['idagenda1']
         self.idagenda2 = self.settings['idagenda2']
+        self.idfan = self.settings['idfan']
 
         self.actionopen = self.settings['actionopen']
         self.actionclose = self.settings['actionclose']
@@ -148,6 +154,7 @@ class AlfredSkill(MycroftSkill):
         self.actioncinema = self.settings['actioncinema']
         self.actionagenda1 = self.settings['actionagenda1']
         self.actionagenda2 = self.settings['actionagenda2']
+        self.actionfan = self.settings['actionfan']
 
     def record_begin_handler(self, message):
         en = mraa.Gpio(12)
@@ -199,6 +206,9 @@ class AlfredSkill(MycroftSkill):
 
     def handle_agenda2_intent(self, message):
         self.call_jeedom(self.idagenda2, self.actionagenda2)
+
+    def handle_fan_intent(self, message):
+        self.call_jeedom(self.idfan, self.actionfan)
 
     def call_jeedom(self, action_id, action):
         pixel_ring.off()

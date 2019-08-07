@@ -131,6 +131,16 @@
                 "name": "actionagenda2",
                 "type": "text",
                 "label": "<p>Jeedom scenario action for 'Agenda 2'. Try 'start'.</p>"
+            },
+            {
+                "name": "idfan",
+                "type": "text",
+                "label": "<p>Jeedom scenario ID for 'Fan On / Off'.</p>"
+            },
+            {
+                "name": "actionfan",
+                "type": "text",
+                "label": "<p>Jeedom scenario action for 'Fan On / Off'. Try 'start'.</p>"
             }]
             }
         ]
