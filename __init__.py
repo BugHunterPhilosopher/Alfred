@@ -43,6 +43,8 @@ class AlfredSkill(MycroftSkill):
         self.idclose = ""
         self.idon = ""
         self.idoff = ""
+        self.idpurple = ""
+        self.idpink = ""
         self.idorange = ""
         self.idred = ""
         self.idgreen = ""
@@ -56,6 +58,8 @@ class AlfredSkill(MycroftSkill):
         self.actionclose = ""
         self.actionon = ""
         self.actionoff = ""
+        self.actionpurple = ""
+        self.actionpink = ""
         self.actionorange = ""
         self.actionred = ""
         self.actiongreen = ""
@@ -98,11 +102,14 @@ class AlfredSkill(MycroftSkill):
         all_black_intent = IntentBuilder("AlfredAllBlackIntent").require("Black").build()
         self.register_intent(all_black_intent, self.handle_all_black_intent)
 
+        all_purple_intent = IntentBuilder("AlfredAllPurpleIntent").require("Purple").build()
+        self.register_intent(all_purple_intent, self.handle_all_purple_intent)
+
+        all_pink_intent = IntentBuilder("AlfredAllPinkIntent").require("Pink").build()
+        self.register_intent(all_pink_intent, self.handle_all_pink_intent)
+
         all_orange_intent = IntentBuilder("AlfredAllOrangeIntent").require("Orange").build()
         self.register_intent(all_orange_intent, self.handle_all_orange_intent)
-
-        all_on_intent = IntentBuilder("AlfredAllOnIntent").require("On").build()
-        self.register_intent(all_on_intent, self.handle_all_on_intent)
 
         all_red_intent = IntentBuilder("AlfredAllRedIntent").require("Red").build()
         self.register_intent(all_red_intent, self.handle_all_red_intent)
@@ -134,6 +141,8 @@ class AlfredSkill(MycroftSkill):
         self.idclose = self.settings['idclose']
         self.idon = self.settings['idon']
         self.idoff = self.settings['idoff']
+        self.idpurple = self.settings['idpurple']
+        self.idpink = self.settings['idpink']
         self.idorange = self.settings['idorange']
         self.idred = self.settings['idred']
         self.idgreen = self.settings['idgreen']
@@ -147,6 +156,8 @@ class AlfredSkill(MycroftSkill):
         self.actionclose = self.settings['actionclose']
         self.actionon = self.settings['actionon']
         self.actionoff = self.settings['actionoff']
+        self.actionpurple = self.settings['actionpurple']
+        self.actionpink = self.settings['actionpink']
         self.actionorange = self.settings['actionorange']
         self.actionred = self.settings['actionred']
         self.actiongreen = self.settings['actiongreen']
@@ -183,11 +194,14 @@ class AlfredSkill(MycroftSkill):
     def handle_all_black_intent(self, message):
         self.call_jeedom(self.idoff, self.actionoff)
 
+    def handle_all_purple_intent(self, message):
+        self.call_jeedom(self.idpurple, self.actionpurple)
+
+    def handle_all_pink_intent(self, message):
+        self.call_jeedom(self.idpink, self.actionpink)
+
     def handle_all_orange_intent(self, message):
         self.call_jeedom(self.idorange, self.actionorange)
-
-    def handle_all_on_intent(self, message):
-        self.call_jeedom(self.idon, self.actionon)
 
     def handle_all_red_intent(self, message):
         self.call_jeedom(self.idred, self.actionred)
