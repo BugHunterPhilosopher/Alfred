@@ -83,6 +83,16 @@
                 "label": "<p>Jeedom scenario action for 'turn all pink'. Try 'start'.</p>"
             },
             {
+                "name": "idyellow",
+                "type": "text",
+                "label": "<p>Jeedom scenario ID for 'turn all yellow'.</p>"
+            },
+            {
+                "name": "actionyellow",
+                "type": "text",
+                "label": "<p>Jeedom scenario action for 'turn all yellow'. Try 'start'.</p>"
+            },
+            {
                 "name": "idorange",
                 "type": "text",
                 "label": "<p>Jeedom scenario ID for 'turn all orange'.</p>"

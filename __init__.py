@@ -45,6 +45,7 @@ class AlfredSkill(MycroftSkill):
         self.idoff = ""
         self.idpurple = ""
         self.idpink = ""
+        self.idyellow = ""
         self.idorange = ""
         self.idred = ""
         self.idgreen = ""
@@ -60,6 +61,7 @@ class AlfredSkill(MycroftSkill):
         self.actionoff = ""
         self.actionpurple = ""
         self.actionpink = ""
+        self.actionyellow = ""
         self.actionorange = ""
         self.actionred = ""
         self.actiongreen = ""
@@ -108,6 +110,9 @@ class AlfredSkill(MycroftSkill):
         all_pink_intent = IntentBuilder("AlfredAllPinkIntent").require("Pink").build()
         self.register_intent(all_pink_intent, self.handle_all_pink_intent)
 
+        all_yellow_intent = IntentBuilder("AlfredAllYellowIntent").require("Yellow").build()
+        self.register_intent(all_yellow_intent, self.handle_all_yellow_intent)
+
         all_orange_intent = IntentBuilder("AlfredAllOrangeIntent").require("Orange").build()
         self.register_intent(all_orange_intent, self.handle_all_orange_intent)
 
@@ -143,6 +148,7 @@ class AlfredSkill(MycroftSkill):
         self.idoff = self.settings['idoff']
         self.idpurple = self.settings['idpurple']
         self.idpink = self.settings['idpink']
+        self.idyellow = self.settings['idyellow']
         self.idorange = self.settings['idorange']
         self.idred = self.settings['idred']
         self.idgreen = self.settings['idgreen']
@@ -158,6 +164,7 @@ class AlfredSkill(MycroftSkill):
         self.actionoff = self.settings['actionoff']
         self.actionpurple = self.settings['actionpurple']
         self.actionpink = self.settings['actionpink']
+        self.actionyellow = self.settings['actionyellow']
         self.actionorange = self.settings['actionorange']
         self.actionred = self.settings['actionred']
         self.actiongreen = self.settings['actiongreen']
@@ -199,6 +206,9 @@ class AlfredSkill(MycroftSkill):
 
     def handle_all_pink_intent(self, message):
         self.call_jeedom(self.idpink, self.actionpink)
+
+    def handle_all_yellow_intent(self, message):
+        self.call_jeedom(self.idyellow, self.actionyellow)
 
     def handle_all_orange_intent(self, message):
         self.call_jeedom(self.idorange, self.actionorange)
