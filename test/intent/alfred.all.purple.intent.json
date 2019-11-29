@@ -1,0 +1,7 @@
+{
+  "utterance": "purple",
+  "intent_type": "AlfredAllPurpleIntent",
+  "intent": {
+    "purple": "purple"
+  }
+}

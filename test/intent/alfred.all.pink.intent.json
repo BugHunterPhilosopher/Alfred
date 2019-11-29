@@ -1,0 +1,7 @@
+{
+  "utterance": "pink",
+  "intent_type": "AlfredAllPinkIntent",
+  "intent": {
+    "pink": "pink"
+  }
+}
