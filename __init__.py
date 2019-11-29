@@ -82,7 +82,7 @@ class AlfredSkill(MycroftSkill):
         en.dir(mraa.DIR_OUT)
         en.write(0)
 
-        pixel_ring.set_brightness(20)
+        pixel_ring.set_brightness(27)
         pixel_ring.wakeup()
         time.sleep(1)
         pixel_ring.off()
